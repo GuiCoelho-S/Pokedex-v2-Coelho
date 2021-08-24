@@ -32,31 +32,32 @@ const Pokemon = () => {
   const [ability, setAbility] = useState([]);
   const [location, setLocation] = useState([]);
 
-  async function getData() {
-    const requestOne = await api.get(`pokemon/${idHandle}`);
-    const requestTwo = await api.get(`ability/${idHandle}`);
-    const requestThree = await api.get(`location/${idHandle}`);
-
-    axios.all([requestOne, requestTwo, requestThree]).then(
-      axios.spread((...allData) => {
-        const allDataDados = allData[0].data;
-        const allDataAbility = allData[1].data;
-        const allDataLocation = allData[2].data;
-
-        setDados(allDataDados);
-        setAbility(allDataAbility);
-        setLocation(allDataLocation);
-      })
-    ).catch((err) => {
-      return console.eror(`ops! ocorreu um erro  ${err}`)
-    });
-  }
+  
 
   function loadingHidden() {
     setLoading(false);
   }
 
   useEffect(() => {
+    async function getData() {
+      const requestOne = await api.get(`pokemon/${idHandle}`);
+      const requestTwo = await api.get(`ability/${idHandle}`);
+      const requestThree = await api.get(`location/${idHandle}`);
+  
+      axios.all([requestOne, requestTwo, requestThree]).then(
+        axios.spread((...allData) => {
+          const allDataDados = allData[0].data;
+          const allDataAbility = allData[1].data;
+          const allDataLocation = allData[2].data;
+  
+          setDados(allDataDados);
+          setAbility(allDataAbility);
+          setLocation(allDataLocation);
+        })
+      ).catch((err) => {
+        return console.eror(`ops! ocorreu um erro  ${err}`)
+      });
+    }
     getData();
     setTimeout(loadingHidden,3000);
   }, [idHandle]);
@@ -157,7 +158,7 @@ const Pokemon = () => {
               </Efeito>
             </CaracteristicasGrid>
           </Informacoes>
-          <HomePage to="/pokemon">Voltar</HomePage>
+          <HomePage to="/">Voltar</HomePage>
         </ContainerPokemon>
       )}
     </Container>

@@ -21,12 +21,13 @@ const Home = () => {
   arr.push(pokemonData);
 
 
-  async function getID(){
+  
+
+  useEffect(() => {
+    async function getID(){
     await api.get(`/pokemon/${pokemonName}`)
     .then((dados) => setId(dados.data))
   }
-
-  useEffect(() => {
     getID()
   },[pokemonName])
   

@@ -13,7 +13,7 @@ const AppRouter = () => {
     <Container>
       <Cabecalho />
       <Switch>
-        <Route exact path="/pokemon">
+        <Route exact path="/">
           <PokemonProvider>
             <Home />
           </PokemonProvider>

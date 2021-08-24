@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../components/Button";
 import { ContainerMain } from "../Home/style";
@@ -41,19 +40,26 @@ export const Informacoes = styled.header`
   flex-direction: row;
   justify-content: flex-start;
   
+ 
   div {
       display:flex;
       flex-direction: column;
       align-items:center;
       justify-content:space-evenly;
       @media (max-width:660px){
-          flex-direction: row;
+          flex-direction: column;
       }
+
+    
   }
   @media (max-width:660px){
       width:100%;
       flex-direction: column;
   };
+
+  @media (max-width:470px){
+    flex-direction: column;
+  }
 `
 export const ContainerButton = styled.div`
 display:flex;
@@ -65,15 +71,15 @@ export const ButtonId = styled(Button)`
 width:50px;
 height: 50px;
 border-radius:50%;
+display:flex;
+justify-content: center;
+align-items:center;
 background-color: tomato;
 font-size:16px;
-display:grid;
-align-items:center;
-justify-content: center;
 outline:none;
 border:none;
 `
-export const HomePage = styled(Link)`
+export const HomePage = styled(Button)`
 width:70px;
 border:none;
 background-color:blue;
@@ -130,6 +136,12 @@ div {
         font-size:14px;
         padding-left:6px;
         color:red;
+    }
+
+    @media (max-width: 650px){
+      width:300px;
+      flex-flex-direction:column;
+      
     }
 }
 

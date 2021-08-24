@@ -19,6 +19,12 @@ export const ConteudoMain = styled(Conteudo)`
     flex-direction: row;
     justify-content: space-around;
     width:500px;
+
+    @media (max-width:480px){
+      width:94%;
+      flex-direction:column;
+      align-items:center;
+    }
   }
 `;
 
@@ -41,6 +47,8 @@ font-size:14px;
 outline: none;
 `
 export const Procurar = styled(Button)`
+margin-top:5px;
 width:120px;
-
+height: 60px;
+border-radius:18px;
 `

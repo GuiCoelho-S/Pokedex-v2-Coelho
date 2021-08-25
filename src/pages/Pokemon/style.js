@@ -10,6 +10,7 @@ justify-content: center;
 `
 export const Container = styled.main`
   width: 100%;
+  height: auto;
   display:grid;
   align-items:center;
   justify-content: center;
@@ -29,6 +30,13 @@ export const ContainerPokemon = styled(ContainerMain)`
   flex-direction: column;
   background-color: transparent;
   border:none;
+
+  @media (max-width:680px){
+    width:80%;
+  }
+  @media(max-width:530px){
+    width:94%;
+  }
 `;
 export const Nome = styled.p`
   text-align: center;
@@ -40,7 +48,9 @@ export const Informacoes = styled.header`
   flex-direction: row;
   justify-content: flex-start;
   
- 
+  @media (max-width:620px){
+    width:100%;
+  }
   div {
       display:flex;
       flex-direction: column;
@@ -63,9 +73,11 @@ export const Informacoes = styled.header`
 `
 export const ContainerButton = styled.div`
 display:flex;
-width:100%;
+width:140px;
 flex-direction: row;
-justify-content: space-between;
+justify-content:space-between;
+align-self:flex-end;
+align-items:center;
 `
 export const ButtonId = styled(Button)`
 width:50px;
@@ -73,7 +85,6 @@ height: 50px;
 border-radius:50%;
 display:flex;
 justify-content: center;
-align-items:center;
 background-color: tomato;
 font-size:16px;
 outline:none;

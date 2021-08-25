@@ -9,6 +9,7 @@ padding:20px;
 text-decoration: none;
 display:grid;
 align-items:center;
+color:black;
 justify-content:center;
 * {
   color:red;

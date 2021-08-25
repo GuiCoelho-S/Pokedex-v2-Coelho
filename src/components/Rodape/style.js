@@ -5,11 +5,12 @@ export const ContainerRodape = styled(Container)`
   background-color: black;
   color: white;
   padding: 10px;
-  
+  height: 100%;
 `;
 
 
 export const Informacoes = styled.div`
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

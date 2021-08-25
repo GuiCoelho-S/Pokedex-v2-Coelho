@@ -9,7 +9,7 @@ export default function PokemonProvider({ children }) {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextUrl, setNextUrl] = useState("");
   const [prevUrl, setPrevUrl] = useState("");
-  const initialUrl = "https://pokeapi.co/api/v2/pokemon?limit=15&offset=0";
+  const initialUrl = "https://pokeapi.co/api/v2/pokemon?limit=150&offset=0";
 
   useEffect(() => {
     async function fetchData() {

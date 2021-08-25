@@ -6,10 +6,12 @@ export default createGlobalStyle`
         padding:0;
         margin:0;
         font-family: 'Montserrat', sans-serif;
+        
     }
 
     html, body, #root {
         width:100%;
         height: 100%;
+        background-color: black;
     }
 `

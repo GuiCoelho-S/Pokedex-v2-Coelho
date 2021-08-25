@@ -34,13 +34,13 @@ align-items:center;
 
 export const PokemonAltPeso = styled.div`
   display: flex;
-  width: 250px;
+  width: 240px;
   
   flex-direction: row;
   justify-content: space-between;
   
   p {
-    padding: 10px;
+    padding: 8px;
   }
 `;
 
@@ -63,7 +63,8 @@ export const ButtonInfo = styled(Button)`
 `
 
 export const ContainerCard = styled.div`
-  width: 300px;
+  width: 100%;
+  padding:10px;
   height: 200px;
   border: 1px solid gray;
   display: flex;

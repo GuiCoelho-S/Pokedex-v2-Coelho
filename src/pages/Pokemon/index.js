@@ -20,12 +20,12 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Nome } from "../../components/Card/style";
 import { FireworkSpinner } from "react-spinners-kit";
-import LeftAngle from "../../assets/icons/angle-left-solid.svg"
+
 import RightAngle from "../../assets/icons/angle-right-solid.svg"
 
 const Pokemon = () => {
   var { id } = useParams();
-  const idA = parseInt(id)
+  var idA = parseInt(id)
   const [idHandle, setIdHandle] = useState(idA)
   const [loading, setLoading] = useState(true);
   const [dados, setDados] = useState([]);
@@ -55,15 +55,15 @@ const Pokemon = () => {
           setLocation(allDataLocation);
         })
       ).catch((err) => {
-        return console.eror(`ops! ocorreu um erro  ${err}`)
+        return console.error(`ops! ocorreu um erro  ${err}`)
       });
     }
     getData();
-    setTimeout(loadingHidden,3000);
+    setTimeout(loadingHidden,4000);
   }, [idHandle]);
 
   const inc = () => {setIdHandle(idHandle+1)}
-  const dec = () => {setIdHandle(idHandle-1)}
+  
 
   console.log(idHandle)
   return (
@@ -76,7 +76,7 @@ const Pokemon = () => {
       ) : (
         <ContainerPokemon>
           <ContainerButton>
-            <ButtonId onCLick={dec}><Icon src={LeftAngle}/></ButtonId>
+            <p>Próximo</p>
             <ButtonId onClick={inc}><Icon src={RightAngle}/></ButtonId>
           </ContainerButton>
           <Informacoes>
@@ -148,8 +148,8 @@ const Pokemon = () => {
                 <div>
                   <p>Short Effect: </p>
                   {ability.effect_entries.length !== 0 ? 
-                    ability.effect_entries[0].short_effect !== 0 ?
-                    (ability.effect_entries[0].short_effect)
+                    ability.effect_entries[1].short_effect !== 0 ?
+                    (ability.effect_entries[1].short_effect)
                     :(<>Unknown data</>)
                    : (
                     <>Unknown data  </>

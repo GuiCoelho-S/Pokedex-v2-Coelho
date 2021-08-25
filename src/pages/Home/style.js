@@ -7,7 +7,8 @@ export const ContainerMain = styled(Container)`
   background-color: pink;
 `;
 export const ConteudoMain = styled(Conteudo)`
-  margin: 20px auto;
+  margin: 0 auto;
+  padding:30px 0;
   flex-direction: column;
   width:1200px;
   height:120%;
@@ -18,6 +19,7 @@ export const ConteudoMain = styled(Conteudo)`
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items:center;
     width:500px;
 
     @media (max-width:480px){
@@ -49,6 +51,18 @@ outline: none;
 export const Procurar = styled(Button)`
 margin-top:5px;
 width:120px;
-height: 60px;
+height: 40px;
 border-radius:18px;
+padding:0;
+
+`
+
+export const Aviso = styled.article`
+margin:20px auto;
+border:1px solid black;
+width:400px;
+height:auto;
+padding:10px;
+border-style: dashed ;
+
 `

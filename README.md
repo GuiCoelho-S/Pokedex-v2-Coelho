@@ -21,12 +21,11 @@
 <h2 align="center">Sumário</h2>
 
 
-- <a href="#sobre" style="color:#2782dd"><h3>Sobre</h3></a>
-- <a href="#rotas" style="color:#2782dd"><h3>Rotas</h3></a>
-- <a href="#api" style="color:#2782dd"><h3>API</h3></a>
--  <a href="#requisitos" style="color:#2782dd"><h3>Requisitos</h3></a>
-</br>
-</br>
+- <p style="color:#2782dd">Sobre</p>
+- <p style="color:#2782dd">Rotas</p>
+- <p style="color:#2782dd">API</p>
+- <p style="color:#2782dd">Requisitos</p>
+  
 <h2 style="color:#ffe811">Metas</h2>
 
 
@@ -77,10 +76,145 @@ Para que seja possível navegar em uma SPA (Single PAge Aplication) é necessár
 </br>
 O app.js renderiza a árvore de componentes, o que aparece na tela. Pórem é o componente <strong>AppRouter</strong> que selecionará qual componente deve ser renderizado, a partir da url local, para navegar entre as páginas, basta usar um componente da prórpia biblioteca Router DOM chamado <.Link>. Para usá-lo basta inserí-lo dessa forma:
 <br>
- < Link  to="/caminho_Page">Clique aqui<br / Link> </br>
+ <code><Link to="caminho">Clique aqui</Link> </code>
+
 </br>
 </br>
 
 ## API
 
+Para entender como a PokeAPI funciona, vou seprar em dois caminhos: 
+
+1. Pókemons gerais
+2. Pókemon dados únicos
+
+
+<h2 style="color:#2782dd">Pókemons gerais:</h2>
+
+```
+
+const initialUrl = "https://pokeapi.co/api/v2/pokemon?limit=150&offset=0";
+
+useEffect(() => {
+async function fetchData() {
+    let response = await getAllPokemon(initialUrl);
+
+await loadingPokemon(response.results);
+}
+
+fetchData();
+}, []);
+
+const loadingPokemon = async (data) => {
+    let _pokemonData = await Promise.all(
+      data.map(async (pokemon) => {
+        let pokemonRecord = await getPokemon(pokemon.url);
+        return pokemonRecord;
+      })
+    );
+    setPokemonData(_pokemonData);
+  };
+
+
+```
+<i>Function -> getAllPokemon</i>
+
+```
+// Essa função se encontra em api.js na pasta service/
+
+export async function getPokemon(url){
+    return new Promise ((resolve, reject) => {
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            resolve(data);
+        })
+    })
+}
+
+```
+
+Para fazer a requisição, é necessário colocá-la dentro do useEffect, para que cada atualização dentro do [ ] retorne uma nova renderização.
+Depois de pegar os 150 pokemons iniciais, caso você veja na doc principal, ele retornará:
+
+-[0]
+
+Pokemon:1</br>
+pokemonURL -> essa url pega todos os dados do pokemon específico.</br>
+
+<br>
+Ou seja, para cada objeto dentro do array loadingPokemon, deve-se fazer uma nova requisição, para isso, é necessário usar Promisse.all, para que as requisições individuais sejam feitas.
+</br>
+</br>
+</br>
+<h2 style="color:#2782dd">Pókemon individual:</h2>
+
+
+Para fazer as requisições individuais, segue o código:
+```
+useEffect(() => {
+    async function getData() {
+      const requestOne = await api.get(`pokemon/${idHandle}`);
+      const requestTwo = await api.get(`ability/${idHandle}`);
+      const requestThree = await api.get(`location/${idHandle}`);
+  
+      axios.all([requestOne, requestTwo, requestThree]).then(
+        axios.spread((...allData) => {
+          const allDataDados = allData[0].data;
+          const allDataAbility = allData[1].data;
+          const allDataLocation = allData[2].data;
+  
+          setDados(allDataDados);
+          setAbility(allDataAbility);
+          setLocation(allDataLocation);
+        })
+      ).catch((err) => {
+        return console.error(`ops! ocorreu um erro  ${err}`)
+      });
+    }
+    getData();
+    setTimeout(loadingHidden,4000);
+  }, [idHandle]);
+
+```
+
+Aqui há um ponto a ser comentado: 
+
+Foi necessário fazer 3 requisições do mesmo pokemon, cada uma trazendo dados especiífos como:
+
+- Localização
+- Habilidades
+- Dados gerais do pokemon
+
+</br>
+Para fazer 3 requisições, caso use o método axios para obter os dados via GET, é necessário usar <i>axios.all</i> ela garantirá que a próxima ação, seja feita somente depois das 3 requisições funcionarem, ou seja, dá uma sincronia ao código.
+
+</br>
+</br>
+</br>
+
 ## Requisitos
+
+Eae curtiu?
+
+Se quiser ver na prática basta clicar no link abaixo:</br>
+
+<a href="https://pokedex-v2-coelho-react.netlify.app/" target="_blank">Site Pokedex</a></br>
+
+Para ver o código basta clicar aqui:
+
+<a href="https://github.com/GuiCoelho-S/Pokedex-v2-Coelho" target="_blank">Github code</a></br>
+
+<h2 align="center">Como rodar na máquina local?</h2>
+
+Para rodar na máquina local, é necessário possuir o node.js instalado na máquina, além dessas bibliotecas:
+
+```
+npm install styled-components
+```
+
+```
+npm install react-router-DOM
+```
+
+Espero que gostem, até o próximo projeto !! 🚀🚀🚀

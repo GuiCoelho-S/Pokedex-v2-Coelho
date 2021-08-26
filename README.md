@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+<header>
+    <center>
+        <h1>Pokedex ReactJS</h1>
+        <h2>🚧 Status: projeto finalizado ✅ </h2>
+        <img src="./github/gif/eevee_md.gif" />
+    </center>
+</header>
+<br>
+<h2>Tecnologias utilizadas 💻 </h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* [Javascript](#https://www.javascript.com/)
+* [HTML 5](#https://html.com/html5/)
+* [CSS 3](#https://www.w3.org/Style/CSS/Overview.en.html)
+* [ReactJS](#https://pt-br.reactjs.org/)
+  
+<h2>Bibliotecas usadas 🗂</h2>
 
-## Available Scripts
+* [React Router DOM](#https://www.npmjs.com/package/react-router-dom)
+* [StyledComponents](#https://styled-components.com/)
 
-In the project directory, you can run:
+<h2 align="center">Sumário</h2>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- <a href="#sobre" style="color:#2782dd"><h3>Sobre</h3></a>
+- <a href="#rotas" style="color:#2782dd"><h3>Rotas</h3></a>
+- <a href="#api" style="color:#2782dd"><h3>API</h3></a>
+-  <a href="#requisitos" style="color:#2782dd"><h3>Requisitos</h3></a>
+</br>
+</br>
+<h2 style="color:#ffe811">Metas</h2>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+         [x] Entender como funciona a pokeAPI               ✅
+         [x] Requisições assíncronas                        ✅
+         [x] Ciclo de vida dos componentes no React         ✅
+         [x] Renderização da página com useEffect           ✅
+         [x] Componentes estilizados com styled components  ✅
+         [x] Gerenciamento de rotas dentro do App           ✅   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Sobre
+<article>
+Este projeto cosiste em criar uma pokedex, ou seja, uma listagem de pokemons com base na PokeAPI, que lista uma infinidade de dados para que seja possível mostrar a parte visual do projeto. Segue uma amostra divididas em duas partes de como a pokedex funciona:
+<br>
+<br>
+<Strong>
+<h4>Pokedex</h4>
+<p>
+A primeira parte, retorna 150 pokemons para o usuário poder ver informações gerais. Como o peso, altura e seus atributos:
+</p>
+<img src="./github/images/Amostra01.png" />
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>Já a segunda página, retorna o pokemon específico digitado pelo usuário. Mostrando mais sobre o pokemon escolhido:
+<br>
+<img src="./github/images/Amostra02.png"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</strong>
+</article>
+</br>
+</br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Rotas
+Para que seja possível navegar em uma SPA (Single PAge Aplication) é necessário que tenha certos caminhos que o desenvolvedor deve fazer para retornar sempre uma única página. A biblioteca React Router DOM ajuda nesse processo, com o uso correto da ferramenta, é possívelindicar rotas que no fim gera uma página somente.<br> Abaixo, mostro o circuito de rotas que desenvolvi nessa aplicação:
+</br>
 
-### `npm run eject`
+<img src="./github/images/caminho_de_rotas.png" />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</br>
+</br>
+O app.js renderiza a árvore de componentes, o que aparece na tela. Pórem é o componente <strong>AppRouter</strong> que selecionará qual componente deve ser renderizado, a partir da url local, para navegar entre as páginas, basta usar um componente da prórpia biblioteca Router DOM chamado <.Link>. Para usá-lo basta inserí-lo dessa forma:
+<br>
+ < Link  to="/caminho_Page">Clique aqui<br / Link> </br>
+</br>
+</br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Requisitos

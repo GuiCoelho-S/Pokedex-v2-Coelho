@@ -64,7 +64,7 @@ const Home = () => {
             onCLick={setTimeout(1000)}
           ><p>Procurar</p></Procurar>
         </article>
-        <Aviso><p>Para que o programe funcione de forma correta, não utilize espaços para pesquisar o pokemon. Caso você esteja em um celular, após digitar, clique nessa box, depois clique no botão Procurar.
+        <Aviso><p>Para que o programa funcione de forma correta, não utilize espaços para pesquisar o pokemon. Caso você esteja em um celular, após digitar, clique nessa box, depois clique no botão Procurar.
         Essa api funciona corretamente com os 190 primeiros pokemons, caso queira procurar outros pokemons, pode acontecer erros inesperados.</p></Aviso>
         <ContainerGrid>
           {arr.map((index) => {
